@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 import org.wlxy.example.common.HttpCode;
@@ -27,12 +28,14 @@ public class UserController {
       // return  MyRsp.success(userService.getAllUser());
        return MyRsp.success(userService.getAllUser(pageParam));
     }
-    @Cacheable(key = "#p0.id",value = "uses")
+
+    @CachePut(key = "#p0.id",value = "uses")
+
     @ApiOperation(value = "添加用户的方法")
     @PostMapping(value = "addUser")
     public Object addUser(@RequestBody @ApiParam("要添加的用户信息") User user){
 
-        return  userService.addUser(user)!=null?MyRsp.success(null):MyRsp.error().msg("添加失败");
+        return  MyRsp.success(userService.addUser(user));
 
     }
     @ApiOperation(value = "按id移除用户的方法")

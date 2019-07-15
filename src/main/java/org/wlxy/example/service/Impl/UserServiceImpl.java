@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.wlxy.example.common.PageParam;
 import org.wlxy.example.dao.UserDao;
 import org.wlxy.example.model.User;
@@ -14,10 +15,13 @@ import org.wlxy.example.service.UserService;
 
 import java.util.List;
 
+@Transactional
 @Service(value = "UserService")
 public class UserServiceImpl implements UserService {
    @Autowired
      UserDao userDao;
+
+
     @Cacheable(key = "#p0",value = "users")
     @Override
     public Object getAllUser(PageParam<User> pageParam) {
@@ -28,6 +32,7 @@ public class UserServiceImpl implements UserService {
             PageHelper.orderBy(pageParam.getOrderParams()[i]);
         }
         List<User> userList=userDao.getAllUser(pageParam.getModel());
+
         PageInfo<User> userPageInfo = new PageInfo<User>(userList);
 
 
@@ -37,10 +42,11 @@ public class UserServiceImpl implements UserService {
         return userDao.removeUser(id)==1;
     }
 
-    @Override
+    @Override   // @Transactional
     public boolean updateUser(User user) {
         return userDao.updateUser(user)==1;
     }
+
 
     @CachePut(value = "users",key = "#p0.id")
     @Override
@@ -48,6 +54,7 @@ public class UserServiceImpl implements UserService {
         userDao.addUser(user);
         return userDao.getUserById(user.getId());
     }
+
     @Cacheable(key = "#p0",value = "users")
     @Override
     public User getUserById(int id) {
