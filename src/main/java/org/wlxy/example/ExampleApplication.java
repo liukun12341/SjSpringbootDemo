@@ -12,8 +12,8 @@ import org.wlxy.example.model.User;
 //@RestController 用这个不用再在每个方法上面添加    @ResponseBody
 @RestController
 @SpringBootApplication
-//@EnableScheduling
-@MapperScan({"org.wlxy.example.dao","org.wlxy.example.task"})
+//@EnableScheduling  // 开启定时任务的开关
+@MapperScan({"org.wlxy.example.dao","org.wlxy.example.common.task"}) // 扫描所有的Mapper包
 public class ExampleApplication {
 
 //    @Value(value = "${app.info}")

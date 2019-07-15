@@ -1,4 +1,4 @@
-package org.wlxy.example.swagger;
+package org.wlxy.example.common.swagger;
 
 import java.util.ArrayList;
 import java.util.List;

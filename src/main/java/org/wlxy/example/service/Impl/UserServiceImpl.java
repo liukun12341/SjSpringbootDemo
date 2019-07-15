@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Object getAllUser(PageParam<User> pageParam) {
        System.out.println("走的数据库");
-
         PageHelper.startPage(pageParam.getPageNum(),pageParam.getPageSize());
         for(int i=0;i<pageParam.getOrderParams().length;i++){
             PageHelper.orderBy(pageParam.getOrderParams()[i]);

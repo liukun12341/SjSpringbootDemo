@@ -1,4 +1,4 @@
-package org.wlxy.example.druid;
+package org.wlxy.example.common.druid;
 import com.alibaba.druid.support.http.StatViewServlet;
 
 import javax.servlet.annotation.WebInitParam;
