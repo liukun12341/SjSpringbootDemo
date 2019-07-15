@@ -1,0 +1,7 @@
+server:
+  port: 8083
+
+app:
+  info: this is test
+  auther: kven
+  eaml: 453546138@qq.com

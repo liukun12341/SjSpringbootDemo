@@ -1,0 +1,7 @@
+server:
+  port: 8081
+
+app:
+  info: this is dev
+  auther: kven
+  emal: 453546138@qq.com

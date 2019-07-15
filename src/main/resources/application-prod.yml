@@ -1,0 +1,14 @@
+server:
+  port: 8082
+
+app:
+  info: this is prod
+  auther: kven
+  eaml: 453546138@qq.com
+  swaggerTitle: 这是我的第一个api在线文档
+  swaggerContactName: kevin
+  swaggerContactWebUrl: http://www.baidu.com
+  swaggerContactEmail: 453546138@qq.com
+  swaggerVersion: 1.1.1
+  swaggerDescription: springboot在线文档
+  swaggerTermsOfServiceUrl: http://www.wangyiyun.com
