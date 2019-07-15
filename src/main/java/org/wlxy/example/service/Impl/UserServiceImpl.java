@@ -57,6 +57,7 @@ public class UserServiceImpl implements UserService {
 
     @Cacheable(key = "#p0",value = "users")
     @Override
+
     public User getUserById(int id) {
         System.out.print("走的数据库");
         return userDao.getUserById(id);
