@@ -11,9 +11,6 @@ import java.time.LocalDateTime;
 @Configuration // 主要用于标记配置类，兼备component的效果
 //  开启定时任务
 public class StaticScheduleTask {
-
-
-
     // 添加定时任务
     @Scheduled(cron = "0/5 * * * * ?")
     // 或直接指定时间间隔，例如：5秒
