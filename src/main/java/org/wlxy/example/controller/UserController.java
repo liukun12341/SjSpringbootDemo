@@ -4,6 +4,8 @@ package org.wlxy.example.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -23,6 +25,8 @@ public class UserController {
 
     @ApiOperation(value = "查询所有用户的方法")
     @PostMapping(value = "/getAll" )
+    @RequiresRoles("admin")
+    //@RequiresPermissions("general")
     public Object getAll(@RequestBody PageParam<User> pageParam){
        // return userService.getAllUser()? MyRsp.success("查询成功"):MyRsp.error().setMsg("查询失败");
       // return  MyRsp.success(userService.getAllUser());

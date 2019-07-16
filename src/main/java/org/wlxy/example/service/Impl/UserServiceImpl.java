@@ -61,4 +61,19 @@ public class UserServiceImpl implements UserService {
         System.out.print("走的数据库");
         return userDao.getUserById(id);
     }
+
+    @Override
+    public User login(String userName, String password) {
+        User condition=new User();
+        condition.setUserName(userName);
+        condition.setPassword(password);
+
+        List<User> userList=userDao.getAllUser(condition);
+        User user=null;
+        if(userList.size()!=0){
+            user=userList.get(0);
+        }
+
+        return user;
+    }
 }

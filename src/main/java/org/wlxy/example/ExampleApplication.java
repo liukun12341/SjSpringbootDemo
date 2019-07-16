@@ -18,6 +18,8 @@ public class ExampleApplication {
 
 //    @Value(value = "${app.info}")
 //    String info;
+
+
     @Autowired
     SystemConfig systemConfig;
     public static void main(String[] args) {

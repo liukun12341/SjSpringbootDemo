@@ -12,6 +12,7 @@ public interface UserService {
    public  boolean updateUser(User user);
    public  User addUser(User user);
    User getUserById(int id);
+   User login(String userName,String password);
 
 
 }
