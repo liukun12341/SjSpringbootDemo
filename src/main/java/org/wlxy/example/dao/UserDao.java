@@ -17,4 +17,9 @@ public interface UserDao {
    // @Insert("insert into user(userName,password,roleId) values(#{userName},#{password},#{roleId})")
     int addUser(User user);
     User getUserById(int id);
+    @Select("select * from user where userName = #{userName}")
+    User getUserByName(String userName);
+
+    @Select("select * from user where email = #{email}")
+    User getUserByEmail(String email);
 }

@@ -17,6 +17,8 @@ import org.wlxy.example.common.PageParam;
 import org.wlxy.example.model.User;
 import org.wlxy.example.service.UserService;
 
+import javax.validation.Valid;
+
 @Api(value = "/user" ,description = "用户类的接口")
 @RestController
 public class UserController {
@@ -37,7 +39,7 @@ public class UserController {
 
     @ApiOperation(value = "添加用户的方法")
     @PostMapping(value = "addUser")
-    public Object addUser(@RequestBody @ApiParam("要添加的用户信息") User user){
+    public Object addUser(@RequestBody @ApiParam("要添加的用户信息") @Valid User user){
 
         return  MyRsp.success(userService.addUser(user));
 
@@ -51,7 +53,7 @@ public class UserController {
     @ApiOperation(value = "更新用户信息的方法")
    @RequestMapping(value = "/update" ,method = RequestMethod.POST)
    //@RequestBody User user 将前端传过来的json数据映射成参数
-   public  Object update(@RequestBody @ApiParam("要更新的用户信息") User user){
+   public  Object update(@RequestBody @ApiParam("要更新的用户信息")@Valid User user){
        System.out.println(user.getUserName());
     return  userService.updateUser(user)?MyRsp.success(null):MyRsp.error().msg("修改失败");
    }

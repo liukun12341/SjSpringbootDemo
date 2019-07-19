@@ -13,6 +13,7 @@ public interface UserService {
    public  User addUser(User user);
    User getUserById(int id);
    User login(String userName,String password);
-
-
+   User getUserByName(String userName);
+   Object getUserByEmail(String email) throws Exception;
+   User getUserByEmail1(String email);
 }
