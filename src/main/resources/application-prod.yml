@@ -5,7 +5,7 @@ app:
   info: this is prod
   auther: kven
   eaml: 453546138@qq.com
-  swaggerTitle: 这是我的第一个api在线文档
+  swaggerTitle: 微品商城api在线文档
   swaggerContactName: kevin
   swaggerContactWebUrl: http://www.baidu.com
   swaggerContactEmail: 453546138@qq.com

@@ -8,6 +8,8 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.thymeleaf.util.StringUtils;
 import org.wlxy.example.common.EmailUtil;
 import org.wlxy.example.common.MyRsp;
 import org.wlxy.example.common.PageParam;
@@ -20,6 +22,7 @@ import java.util.Random;
 
 @Transactional
 @Service(value = "UserService")
+@CrossOrigin
 public class UserServiceImpl implements UserService {
    @Autowired
      UserDao userDao;
@@ -69,17 +72,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(String userName, String password) {
-        User condition=new User();
-        condition.setUserName(userName);
-        condition.setPassword(password);
+        if(StringUtils.isEmpty(userName)||StringUtils.isEmpty(password)){
+            return  null;
+        }else {
+            User condition = new User();
+            condition.setUserName(userName);
+            condition.setPassword(password);
 
-        List<User> userList=userDao.getAllUser(condition);
-        User user=null;
-        if(userList.size()!=0){
-            user=userList.get(0);
+            List<User> userList = userDao.getAllUser(condition);
+            User user = null;
+            if (userList.size() != 0) {
+                user = userList.get(0);
+            }
+
+            return user;
         }
-
-        return user;
     }
 
     @Override

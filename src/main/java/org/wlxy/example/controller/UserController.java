@@ -36,7 +36,6 @@ public class UserController {
     }
 
     @CachePut(key = "#p0.id",value = "uses")
-
     @ApiOperation(value = "添加用户的方法")
     @PostMapping(value = "addUser")
     public Object addUser(@RequestBody @ApiParam("要添加的用户信息") @Valid User user){

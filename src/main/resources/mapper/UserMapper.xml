@@ -31,6 +31,12 @@
             <if test=" isActive !=null and isActive !='' ">
                 and isActive=#{isActive}
             </if>
+            <if test=" deliveryAddress !=null and deliveryAddress !='' ">
+                and deliveryAddress=#{deliveryAddress}
+            </if>
+            <if test=" headPic !=null and headPic !='' ">
+                and headPic=#{headPic}
+            </if>
         </where>
 
     </select>
@@ -55,7 +61,13 @@
                 email,
             </if>
             <if test=" isActive !=null and isActive !='' ">
-                isActive
+                isActive,
+            </if>
+            <if test=" deliveryAddress !=null and deliveryAddress !='' ">
+                deliveryAddress,
+            </if>
+            <if test=" headPic !=null and headPic !='' ">
+                headPic
             </if>
         </trim>
         <trim prefix="values(" suffix=")" suffixOverrides=",">
@@ -75,7 +87,14 @@
                 #{email},
             </if>
             <if test=" isActive !=null and isActive !='' ">
-                #{isActive}
+                #{isActive},
+            </if>
+
+            <if test=" deliveryAddress !=null and deliveryAddress !='' ">
+                #{deliveryAddress},
+            </if>
+            <if test=" headPic !=null and headPic !='' ">
+                #{headPic}
             </if>
 
         </trim>
@@ -110,7 +129,13 @@
                 email=#{email},
             </if>
             <if test=" isActive !=null and isActive !='' ">
-                isActive=#{isActive}
+                isActive=#{isActive},
+            </if>
+            <if test=" deliveryAddress !=null and deliveryAddress !='' ">
+                deliveryAddress=#{deliveryAddress},
+            </if>
+            <if test=" headPic !=null and headPic !='' ">
+                headPic=#{headPic}
             </if>
 
 

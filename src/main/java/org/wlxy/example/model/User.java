@@ -31,4 +31,11 @@ public class User implements Serializable { //Serializable起到序列化的作�
 
     @ApiModelProperty(value = "用户是否被激活" ,name = "isActive")
     private  int isActive;
+
+    @ApiModelProperty(value = "用户收货地址" ,name = "deliveryAddress")
+    private  String deliveryAddress;
+
+    @ApiModelProperty(value = "用户头像" ,name = "headPic")
+    private  String headPic;
+
 }
