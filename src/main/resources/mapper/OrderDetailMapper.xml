@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.wlxy.example.dao.OrderDetailDao">
+    <insert parameterType="OrderDetail" id="addOrderDetail">
+
+            insert into orderdetail<trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test=" id !=null and id !='' ">
+                id,
+                </if>
+                <if test=" productId !=null and productId !='' ">
+                    productId,
+                </if>
+                <if test=" orderId !=null and orderId !='' ">
+                    orderId,
+                </if>
+
+                <if test=" userId !=null and userId !='' ">
+                    userId,
+                </if>
+                <if test=" productName !=null and productName !='' ">
+                    productName,
+                </if>
+                <if test=" normalPrice !=null and normalPrice !='' ">
+                    normalPrice,
+                </if>
+                <if test=" discount !=null and discount !='' ">
+                    discount,
+                </if>
+                <if test=" isInDiscount !=null and isInDiscount !='' ">
+                    isInDiscount,
+                </if>
+                <if test=" typeId !=null and typeId !='' ">
+                    typeId,
+                </if>
+                <if test=" isInKill !=null and isInKill !='' ">
+                    isInKill,
+                </if>
+                <if test=" killDiscount !=null and killDiscount !='' ">
+                    killDiscount,
+                </if>
+                <if test=" productImg !=null and productImg !='' ">
+                    productImg,
+                </if>
+                <if test=" viewNum !=null and viewNum !='' ">
+                    viewNum,
+                </if>
+                <if test=" deserveNum !=null and deserveNum !='' ">
+                    deserveNum,
+                </if>
+                <if test=" describes !=null and describes !='' ">
+                    describes,
+                </if>
+                <if test=" orderCount !=null and orderCount !='' ">
+                    orderCount,
+                </if>
+                <if test=" deliveryPrice !=null and deliveryPrice !='' ">
+                    deliveryPrice,
+                </if>
+                <if test=" deliveryPlace !=null and deliveryPlace !='' ">
+                    deliveryPlace,
+                </if>
+                <if test=" productNum !=null and productNum !='' ">
+                    productNum
+                </if>
+            </trim>
+            <trim prefix="values(" suffix=")" suffixOverrides=",">
+                <if test=" id !=null and id !='' ">
+                    #{id},
+                </if>
+                <if test=" productId !=null and productId !='' ">
+                    #{productId},
+                </if>
+
+                <if test=" orderId !=null and orderId !='' ">
+                    #{orderId},
+                </if>
+                <if test=" userId !=null and userId !='' ">
+                    #{userId},
+                </if>
+                <if test=" productName !=null and productName !='' ">
+                    #{productName},
+                </if>
+                <if test=" normalPrice !=null and normalPrice !='' ">
+                    #{normalPrice},
+                </if>
+                <if test=" discount !=null and discount !='' ">
+                    #{discount},
+                </if>
+                <if test=" isInDiscount !=null and isInDiscount !='' ">
+                    #{isInDiscount},
+                </if>
+                <if test=" typeId !=null and typeId !='' ">
+                    #{typeId},
+                </if>
+                <if test=" isInKill !=null and isInKill !='' ">
+                    #{isInKill},
+                </if>
+                <if test=" killDiscount !=null and killDiscount !='' ">
+                    #{killDiscount},
+                </if>
+                <if test=" productImg !=null and productImg !='' ">
+                    #{productImg},
+                </if>
+                <if test=" viewNum !=null and viewNum !='' ">
+                    #{viewNum},
+                </if>
+                <if test=" deserveNum !=null and deserveNum !='' ">
+                    #{deserveNum},
+                </if>
+                <if test=" describes !=null and describes !='' ">
+                    #{describes},
+                </if>
+                <if test=" orderCount !=null and orderCount !='' ">
+                    #{orderCount},
+                </if>
+                <if test=" deliveryPrice !=null and deliveryPrice !='' ">
+                    #{deliveryPrice},
+                </if>
+                <if test=" deliveryPlace !=null and deliveryPlace !='' ">
+                    #{deliveryPlace},
+                </if>
+                <if test=" productNum !=null and productNum !='' ">
+                    #{productNum}
+                </if>
+            </trim>
+
+            <selectKey resultType="int" keyProperty="id" order="AFTER">
+                select LAST_INSERT_ID()
+            </selectKey>
+        </insert>
+</mapper>

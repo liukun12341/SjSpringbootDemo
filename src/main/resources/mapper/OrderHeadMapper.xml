@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.wlxy.example.dao.OrderHeadDao">
+
+    <insert parameterType="OrderHead" id="addOrderHead">
+
+        insert into OrderHead
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test=" totalProductCount !=null and totalProductCount !='' ">
+                totalProductCount,
+            </if>
+
+            <if test=" firstProductName !=null and firstProductName !='' ">
+                firstProductName,
+            </if>
+
+            <if test=" firstProductImg !=null and firstProductImg !='' ">
+                firstProductImg,
+            </if>
+            <if test=" totalPrice !=null and totalPrice !='' ">
+                totalPrice,
+            </if>
+            <if test=" userId !=null and userId !='' ">
+                userId,
+            </if>
+            <if test=" state !=null and state !='' ">
+                state，
+            </if>
+            <if test=" discountTotal !=null and discountTotal !='' ">
+                discountTotal,
+            </if>
+            <if test=" killDiscountTotal !=null and killDiscountTotal !='' ">
+                killDiscountTotal
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test=" totalProductCount !=null and totalProductCount !='' ">
+                #{totalProductCount},
+            </if>
+
+            <if test=" firstProductName !=null and firstProductName !='' ">
+                #{firstProductName},
+            </if>
+
+            <if test=" firstProductImg !=null and firstProductImg !='' ">
+                #{firstProductImg},
+            </if>
+            <if test=" totalPrice !=null and totalPrice !='' ">
+                #{totalPrice},
+            </if>
+            <if test=" userId !=null and userId !='' ">
+                #{userId},
+            </if>
+            <if test=" state !=null and state !='' ">
+                #{state}，
+            </if>
+            <if test=" discountTotal !=null and discountTotal !='' ">
+                #{discountTotal},
+            </if>
+            <if test=" killDiscountTotal !=null and killDiscountTotal !='' ">
+                #{killDiscountTotal}
+            </if>
+
+        </trim>
+
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+
+
+
+</mapper>
