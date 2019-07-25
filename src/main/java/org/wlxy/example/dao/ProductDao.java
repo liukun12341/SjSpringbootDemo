@@ -24,4 +24,6 @@ public interface ProductDao {
     @Select("select * from product where id=#{id}")
     public Product getProductById(int id);
 
+
+
 }

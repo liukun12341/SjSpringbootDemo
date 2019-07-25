@@ -42,6 +42,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/OrderHeadController/**", "anon");
         filterChainDefinitionMap.put("/druid/**", "anon");
         filterChainDefinitionMap.put("/OrderDetailController/**", "anon");
+        filterChainDefinitionMap.put("/LogisticsController/**", "anon");
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/upload/**", "anon");
         filterChainDefinitionMap.put("/**.js", "anon");

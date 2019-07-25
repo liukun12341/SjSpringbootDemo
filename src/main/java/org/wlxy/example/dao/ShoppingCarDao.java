@@ -25,6 +25,9 @@ public interface ShoppingCarDao {
 
     @Select("select * from shoppingcar where userId=#{userId}")
     public List<ShoppingCar> getShoppingCarById(int userId);
+
+//    @Select("select * from shoppingcar where productId=#{productId}")
+//    public List<ShoppingCar> getShoppingCarByProductId(int productId);
     @Delete("Delete  from shoppingcar where id=#{id}" )
     void removeShoppingcarById(int id);
 }
